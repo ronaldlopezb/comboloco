@@ -1,0 +1,14 @@
+<ifModule mod_rewrite.c>
+
+# Activar rewirte
+RewriteEngine on
+ErrorDocument 404 http://comboloco.com/error/index
+
+# Que no me deje entrar a directorio o archivo
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+# Regla de Re-Escritura
+RewriteRule ^(.*)/(.*) index.php?controller=$1&action=$2
+
+</ifModule>
